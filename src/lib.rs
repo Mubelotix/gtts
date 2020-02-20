@@ -1,3 +1,13 @@
+//! This is a very small crate using google text to speech (GTTS).
+//! It requires an Internet connection.
+//! 
+//! # Example
+//! 
+//! ```
+//! # use gtts::save_to_file;
+//! save_to_file("Hello world!", "test");
+//! ```
+
 use percent_encoding::{AsciiSet, utf8_percent_encode, CONTROLS};
 use minreq::get;
 use std::fs::File;
@@ -5,6 +15,8 @@ use std::io::prelude::*;
 
 const FRAGMENT: &AsciiSet = &CONTROLS.add(b' ').add(b'"').add(b'<').add(b'>').add(b'`');
 
+/// Use google translate to get a audio version of your text and save this in a file.
+/// Return true if everything succeed.
 pub fn save_to_file(text: &str, filename: &str) -> bool {
     let len = text.len();
     let text = utf8_percent_encode(text, FRAGMENT).to_string();
@@ -20,7 +32,7 @@ pub fn save_to_file(text: &str, filename: &str) -> bool {
         }
     }
 
-    true
+    false
 }
 
 #[cfg(test)]

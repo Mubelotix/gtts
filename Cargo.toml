@@ -3,6 +3,10 @@ name = "gtts"
 version = "0.1.0"
 authors = ["Mubelotix <mubelotix@gmail.com>"]
 edition = "2018"
+license = "MIT"
+description = "This is a very small crate using google text to speech (GTTS)."
+readme = "README.md"
+repository = "https://github.com/Mubelotix/gtts"
 
 [dependencies]
 minreq = {version="2.0.3", features=["https"]}
